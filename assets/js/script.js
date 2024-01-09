@@ -1,30 +1,28 @@
-// Get the modal and the images with specific IDs
-var modal = document.getElementById("myModal");
-var modalImg = document.getElementById("modalImg");
-var modalOne = document.getElementById("modalOne");
-var modalTwo = document.getElementById("modalTwo");
-var modalThree = document.getElementById("modalThree");
+const modal = document.getElementById("myModal");
+const modalImg = document.getElementById("modalImg");
+const modalOne = document.getElementById("modalOne");
+const modalTwo = document.getElementById("modalTwo");
+const modalThree = document.getElementById("modalThree");
+const anchors = document.querySelectorAll('a');
 
 function openModal(imageSrc) {
-    modal.style.display = "block"; // Display the modal
-    modalImg.src = imageSrc; // Set the image path for the modal image
-    modal.classList.remove('show'); // Remove 'show' class initially
+    modal.style.display = "block"; 
+    modalImg.src = imageSrc; 
+    modal.classList.remove('show');
     setTimeout(() => {
-      modal.classList.add('show'); // Add 'show' class after a slight delay
+      modal.classList.add('show');
     }, 50);
     modalImg.style.maxWidth = "80%";
     modalImg.style.maxHeight = "80vh";
   }
   
-  // Function to close modal
   function closeModal() {
-    modal.classList.remove('show'); // Remove 'show' class for fade-out transition
+    modal.classList.remove('show');
     setTimeout(() => {
-      modal.style.display = "none"; // Hide the modal after the transition
-    }, 300); // Adjust this duration to match the modal transition duration
+      modal.style.display = "none";
+    }, 300);
   }
   
-  // Attach click events to the modaled images
   modalOne.addEventListener("click", function() {
     openModal("assets/img/component-01/Image-01@2x.jpg");
   });
@@ -37,17 +35,28 @@ function openModal(imageSrc) {
     openModal("assets/img/component-01/Image-03@2x.jpg");
   });
   
-  // Close the modal on clicking outside the modal content area
+
   window.onclick = function(event) {
     if (event.target == modal) {
       closeModal();
     }
   };
   
-  // Close the modal on pressing the Escape key
   document.onkeydown = function(event) {
     event = event || window.event;
     if (event.keyCode == 27) {
       closeModal();
     }
   };
+
+// Loop through each anchor element and attach a click event listener
+anchors.forEach(anchor => {
+  anchor.addEventListener('click', event => {
+    
+    // Get the ID of the clicked anchor element
+    const clickedId = event.target.getAttribute('id');
+    
+    // Log the clicked ID to the console
+    console.log(`Clicked ID: ${clickedId}`);
+  });
+});

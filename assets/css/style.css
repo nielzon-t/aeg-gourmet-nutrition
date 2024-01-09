@@ -16,6 +16,7 @@
   clear: both;
 }
 
+/* Font styles */
 @font-face {
   font-family: 'Open Sans';
   src: url('../fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
@@ -53,16 +54,25 @@ h3 {
   letter-spacing: 1.1px;
 }
 
-/* Layout Styles */
+p {
+  max-width: 90%;
+  margin-bottom: 1rem;
+}
 
-.mains,
+a {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from the parent */
+}
+
+/* Layout Styles */
+.mainComponents,
 .blogPosts,
 #bottomComponent {
   display: flex;
   justify-content: center;
 }
 
-.mains {
+.mainComponents {
   flex-direction: row;
   height: 50%;
 }
@@ -71,7 +81,7 @@ h3 {
   flex-direction: column;
 }
 
-.twenty {
+.componentSections {
   width: 29%;
 }
 
@@ -87,10 +97,14 @@ section h1 {
   margin-bottom: .3125rem;
   text-transform: uppercase;
   font-weight: 300;
-  color: rgba(244, 244, 244, 0.9);
+  color: rgba(244, 244, 244, 0.9);  
 }
 
-.red, .readMore {
+#topComponent h1 {
+  word-spacing: 12px;
+}
+
+.redText, .readMore {
   font-weight: 500;
   text-transform: uppercase;
 }
@@ -101,7 +115,7 @@ section h1 {
   border-bottom: 1px solid rgba(255, 0, 0, 1);
 }
 
-.red {
+.redText {
   color: rgba(255, 0, 0, 1);
 }
 
@@ -117,29 +131,29 @@ section h1 {
 }
 
 section * {
-  padding: 0.8%;
+  padding: 1.7%;
 }
 
 .redLined {
-  border-bottom: 3px solid rgba(255, 0, 0, 1); /* Initial border */
-  transition: border-bottom 0.5s ease, transform 0.5s ease; /* Transition effect */
+  border-bottom: 3px solid rgba(255, 0, 0, 1);
+  transition: border-bottom 0.5s ease, transform 0.5s ease;
 }
 
 .redLined:hover {
-  border-bottom-color: transparent; /* Change border color on hover */
-  transform: scale(1.1); /* Scale the image on hover */
+  border-bottom-color: transparent;
+  transform: scale(1.1);
 }
 
-.blogPosts .twenty {
+.blogPosts .componentSections {
   transition: transform 0.2s ease, background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
 }
 
-.blogPosts .twenty:hover {
+.blogPosts .componentSections:hover {
   transform: scale(1.02);
-  background-color: rgba(255, 255, 255, 0.1); /* Change to your desired background color */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Change to your desired border */
-  border-radius: 5px; /* Add a light rounded border */
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Add a light box shadow */
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .readMore {
@@ -147,9 +161,9 @@ section * {
 }
 
 .readMore:hover {
-  border: 1px solid transparent; /* Removes the initial border */
-  border-radius: 3px; /* Adds a faint rounded border */
-  background-color: rgba(255, 255, 255, 0.2); /* Lighter background color */
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .modaled {
@@ -157,11 +171,11 @@ section * {
 }
 
 .modaled:hover {
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Modify the shadow as desired */
-  transform: scale(1.05); /* Scale the image a bit on hover */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
 }
 
-
+/* Modal Styles */
 .modal {
   display: none;
   position: fixed;
@@ -172,8 +186,8 @@ section * {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.9);
-  opacity: 0; /* Start with zero opacity */
-  transition: opacity 0.3s ease-in-out; /* Add a smooth transition */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .modal.show {
@@ -182,8 +196,8 @@ section * {
 }
 
 .modal-content {
-  max-width: 80%; /* Adjust as needed */
-  max-height: 80vh; /* Adjust as needed */
+  max-width: 80%;
+  max-height: 80vh;
   width: auto;
   display: block;
   margin: auto;
@@ -207,9 +221,154 @@ section * {
   cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
-  .modal-content {
-    max-width: 90%;
-    max-height: 90vh;
+/* Grid layout for top component */
+#topComponent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1.25rem;
+  margin: 5%;
+}
+
+#topComponent .componentSections {
+  width: 100%;
+  max-width: 100%;
+}
+
+#topComponent .componentSections:nth-child(1) {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 2;
+}
+
+#topComponent .componentSections:nth-child(2) {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 2;
+  width: 100%;
+
+}
+
+#topComponent .smallerText {
+  grid-column: 3 / span 1;
+  grid-row: 2 / span 1;
+}
+
+#topComponent .biggerText {
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 1;
+}
+
+#topComponent img,
+#topComponent h1,
+#topComponent p,
+#topComponent span,
+#topComponent .bold {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Responsive grid layout for textContainer */
+@media screen and (max-width: 850px) {
+  #topComponent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-gap: 20px;
+    margin: 10%;
+  }
+
+  #topComponent .componentSections:nth-child(1) {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+
+  #topComponent .componentSections:nth-child(2) {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+  }
+
+  #topComponent .textContainer {
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+
+  #topComponent .biggerText {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
+
+  #topComponent .smallerText {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+  }
+
+  #topComponent .textContainer .biggerText,
+  #topComponent .textContainer .smallerText {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #bottomComponent .blogPosts {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .blogPosts .componentSections {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 65%;
+  }
+
+  .blogPosts span {
+    align-self: flex-start;
+    margin: 1% 5%;
+  }
+  
+  h3 {
+    text-align: center;
+  }
+
+  .blogPosts .componentSections p {
+    width: 110%;
+    text-align: justify;
+  }
+
+  .blogPosts a {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+
+  #topComponent .componentSections:nth-child(1) {
+    grid-column: 1 / span 2;
+    grid-row: 5 / span 1;
+  }
+
+  #topComponent .componentSections:nth-child(2) {
+    grid-column: 2 / span 1;
+    grid-row: 7 / span 1;
+  }
+
+  #topComponent .smallerText {
+    grid-column: 1 / span 1;
+    grid-row: 7 / span 1;
+  }
+
+  #topComponent .biggerText {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 4;
+  }
+
+  .biggerText h1 {
+    text-align: center;
+  }
+
+  .centered {
+    width: 65%;
+    align-self: center;
+    font-size: 1.8rem;
   }
 }
