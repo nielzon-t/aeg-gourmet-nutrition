@@ -1,66 +1,141 @@
-/* Box Model Hack */
+/* Base Styles */
 * {
   box-sizing: border-box;
-  color: white;
 }
 
-/* Clear fix hack */
 .clearfix:after {
-     content: ".";
-     display: block;
-     clear: both;
-     visibility: hidden;
-     line-height: 0;
-     height: 0;
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
 }
 
 .clear {
-	clear: both;
+  clear: both;
 }
 
-/******************************************
-/* BASE STYLES
-/*******************************************/
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans/OpenSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans Semi Condensed';
+  src: url('../fonts/OpenSans_SemiCondensed/OpenSans_SemiCondensed-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans Semi Condensed';
+  src: url('../fonts/OpenSans_SemiCondensed/OpenSans_SemiCondensed-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* General Styles */
 body {
   background-color: #0E1414;
   display: flex;
   flex-direction: column;
+  font: 300 16px/1.5 'Open Sans', sans-serif;
+  color: rgba(244, 244, 244, 0.8);
+  word-spacing: 2px;
 }
-
-
-/******************************************
-/* LAYOUT
-/*******************************************/
-.mains {
-  display: flex;
-  flex-direction: row;
-  height: 50%;
-  justify-content: center;
-}
-
-.blogPosts {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-#bottom {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.twenty {
-  width: 30%;
-}
-
-
-/******************************************
-/* ADDITIONAL STYLES
-/*******************************************/
 
 img {
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
+
+/* Layout Styles */
+
+.mains,
+.blogPosts,
+#bottomComponent {
+  display: flex;
+  justify-content: center;
+}
+
+.mains {
+  flex-direction: row;
+  height: 50%;
+}
+
+#bottomComponent {
+  flex-direction: column;
+}
+
+.twenty {
+  width: 25%;
+}
+
+/* Additional Styles */
+.centered {
+  text-align: center;
+  color: rgba(244, 244, 244, 1);
+  font-size: 2.3rem;
+}
+
+section h1 {
+  margin-top: 0;
+  margin-bottom: .3125rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: rgba(244, 244, 244, 0.9);
+}
+
+.red {
+  color: rgba(255, 0, 0, 1);
+  font-weight: 500;
+}
+
+.bold {
+  font-weight: 500;
+  color: rgba(244, 244, 244, 1);
+}
+
+.topHeading {
+  border-bottom: 1px solid white;
+  padding: .3125rem;
+  padding-top: 0;
+}
+
+section * {
+  padding: 0.8%;
+}
+
+.redLined {
+  border-bottom: 3px solid rgba(255, 0, 0, 1); /* Initial border */
+  transition: border-bottom 0.5s ease, transform 0.5s ease; /* Transition effect */
+}
+
+.redLined:hover {
+  border-bottom-color: transparent; /* Change border color on hover */
+  transform: scale(1.1); /* Scale the image on hover */
+}
+
+.blogPosts .twenty {
+  transition: transform 0.2s ease, background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blogPosts .twenty:hover {
+  transform: scale(1.02);
+  background-color: rgba(255, 255, 255, 0.1); /* Change to your desired background color */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Change to your desired border */
+  border-radius: 5px; /* Add a light rounded border */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Add a light box shadow */
+}
+

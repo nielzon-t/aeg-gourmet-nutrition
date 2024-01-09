@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+  content: ".";
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+  display: block;
+}
+
+.clear {
+  clear: both;
+}
+
+@font-face {
+  font-family: Open Sans;
+  src: url("OpenSans-Regular.6859e97c.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Open Sans;
+  src: url("OpenSans-Light.97b3254a.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Open Sans Semi Condensed;
+  src: url("OpenSans_SemiCondensed-Light.5f1e1d4b.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Open Sans Semi Condensed;
+  src: url("OpenSans_SemiCondensed-Regular.db85c7f7.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  color: #f4f4f4cc;
+  word-spacing: 2px;
+  background-color: #0e1414;
+  flex-direction: column;
+  font: 300 16px / 1.5 Open Sans, sans-serif;
+  display: flex;
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.mains, .blogPosts, #bottomComponent {
+  justify-content: center;
+  display: flex;
+}
+
+.mains {
+  flex-direction: row;
+  height: 50%;
+}
+
+#bottomComponent {
+  flex-direction: column;
+}
+
+.twenty {
+  width: 25%;
+}
+
+.centered {
+  text-align: center;
+  color: #f4f4f4;
+  font-size: 2.3rem;
+}
+
+section h1 {
+  text-transform: uppercase;
+  color: #f4f4f4e6;
+  margin-top: 0;
+  margin-bottom: .3125rem;
+  font-weight: 300;
+}
+
+.red {
+  color: red;
+  font-weight: 500;
+}
+
+.bold {
+  color: #f4f4f4;
+  font-weight: 500;
+}
+
+.topHeading {
+  border-bottom: 1px solid #fff;
+  padding: 0 .3125rem .3125rem;
+}
+
+section * {
+  padding: .8%;
+}
+
+.redLined {
+  border-bottom: 3px solid red;
+  transition: border-bottom .5s, transform .5s;
+}
+
+.redLined:hover {
+  border-bottom-color: #0000;
+  transform: scale(1.1);
+}
+
+.blogPosts .twenty {
+  transition: transform .2s, background-color .3s, border .3s, box-shadow .3s;
+}
+
+.blogPosts .twenty:hover {
+  background-color: #ffffff1a;
+  border: 1px solid #ffffff4d;
+  border-radius: 5px;
+  transform: scale(1.02);
+  box-shadow: 0 0 10px #ffffff4d;
+}
+
+/*# sourceMappingURL=index.f3b972e4.css.map */
