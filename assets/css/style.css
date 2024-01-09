@@ -30,20 +30,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Open Sans Semi Condensed';
-  src: url('../fonts/OpenSans_SemiCondensed/OpenSans_SemiCondensed-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Open Sans Semi Condensed';
-  src: url('../fonts/OpenSans_SemiCondensed/OpenSans_SemiCondensed-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* General Styles */
 body {
   background-color: #0E1414;
@@ -58,6 +44,13 @@ img {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+h3 {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+  letter-spacing: 1.1px;
 }
 
 /* Layout Styles */
@@ -79,7 +72,7 @@ img {
 }
 
 .twenty {
-  width: 25%;
+  width: 29%;
 }
 
 /* Additional Styles */
@@ -97,9 +90,19 @@ section h1 {
   color: rgba(244, 244, 244, 0.9);
 }
 
+.red, .readMore {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.readMore {
+  color: rgba(255, 255, 255, 1);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 0, 0, 1);
+}
+
 .red {
   color: rgba(255, 0, 0, 1);
-  font-weight: 500;
 }
 
 .bold {
@@ -108,7 +111,7 @@ section h1 {
 }
 
 .topHeading {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgba(255,255,255,1);
   padding: .3125rem;
   padding-top: 0;
 }
@@ -139,3 +142,74 @@ section * {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Add a light box shadow */
 }
 
+.readMore {
+  transition: border-color 0.5s ease, background-color 0.5s ease;
+}
+
+.readMore:hover {
+  border: 1px solid transparent; /* Removes the initial border */
+  border-radius: 3px; /* Adds a faint rounded border */
+  background-color: rgba(255, 255, 255, 0.2); /* Lighter background color */
+}
+
+.modaled {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.modaled:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Modify the shadow as desired */
+  transform: scale(1.05); /* Scale the image a bit on hover */
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 0; /* Start with zero opacity */
+  transition: opacity 0.3s ease-in-out; /* Add a smooth transition */
+}
+
+.modal.show {
+  display: block;
+  opacity: 1;
+}
+
+.modal-content {
+  max-width: 80%; /* Adjust as needed */
+  max-height: 80vh; /* Adjust as needed */
+  width: auto;
+  display: block;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.close {
+  color: white;
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+  }
+}
